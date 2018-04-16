@@ -1,0 +1,326 @@
+@import "lib/flatpickr";
+ body{
+  background: #f7f7f8;
+}
+/**********************margins********************************/
+$mapMargins:(0,4,6,8,10,14,15,20,30,140);
+$directions:(t:top,b:bottom,l:left,r:right);
+@each $d-key,$d-value in $directions {
+  @each $style in $mapMargins {
+    .mar-#{$d-key}#{$style} {
+       margin-#{$d-value} : #{$style}px !important;
+    }
+  }
+}
+.clearfix {
+  clear:both;
+}
+
+/**********************paddings********************************/
+.padding030 {
+  padding:0 30px;
+  background:#fff;
+}
+.padding1030 {
+  padding:10px 30px;
+  background:#fff;
+}
+.padding2030 {
+  padding:20px 30px;
+  background:#fff;
+}
+/**********************sizes********************************/
+$mapSizes:(60,90, 97, 100,136,145,150,175,170,200,220,278,300,314,286,288,306,320,680 );
+@each $style in $mapSizes {
+  .w#{$style} {
+     width : #{$style}px !important;
+  }
+}
+.w306 {
+  width:306px;
+  display: inline-block;
+}
+/**********************custom styles********************************/
+.layout-content {
+  min-height: 300px;
+  margin: 0 24px;
+}
+.pull-left {
+  float:left;
+}
+.pull-right {
+  float:right;
+}
+.text-right {
+  text-align:right;
+}
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.ivu-form-item-validating .ivu-input-icon-validate {
+  display: none;
+}
+.operate {
+  line-height: 24px;
+  text-align: center;
+  padding:0 14px;
+  cursor: pointer;
+  width:98px;
+  &:hover {
+    background:#f5f7f9;
+  }
+}
+.simple-breadcrumb {
+  width:100%;
+  color:#666;
+  font-size:14px;
+  margin:20px 0;
+  a{
+    color:#666!important;
+    &:hover{
+      color:#1d86f4!important;
+    }
+  }
+}
+.bg-white {
+  background:#fff;
+}
+.bg-shadow {
+  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 1px 4px rgba(0,0,0,.15);
+  box-shadow: 0 1px 4px rgba(0,0,0,.15);
+  -o-box-shadow:0 1px 4px rgba(0,0,0,.15);
+}
+.table-wrap {
+  margin-bottom:30px;
+}
+.ivu-message-custom-content {
+  display:inline-flex;
+  justify-content: middle;
+  align-items: center;
+  line-height: 26px;
+}
+.bgary {
+  padding:20px 30px;
+  margin-bottom:10px;
+  .ivu-form-item {
+    margin-bottom:0px!important;
+  }
+  &.ivu-form-inline .ivu-form-item {
+    margin-right:30px!important;
+  }
+}
+.bottom-btns {
+  margin:40px auto 20px;
+}
+.title-big {
+  font-size: 16px;
+  font-weight: bold;
+  height:20px;
+  line-height: 20px;
+}
+.line {
+  margin-right: 5px;
+  width:2px;
+  height:16px;
+  background:#000;
+  display: inline-block;
+  position: relative;
+  top:2px;
+}
+/*************************few ivu rewrite****************************************/
+.ivu-btn-primary:hover {
+  background:#0e75e1;
+  border:1px solid #0e75e1;
+}
+.ivu-btn-ghost:hover {
+  background:#f0f0f0;
+  border:1px solid #e1e1e1;
+  color:#666;
+}
+.ivu-radio-wrapper-checked {
+  color:#1d86f4
+}
+.ivu-radio-wrapper-disabled {
+  color:#333;
+}
+.ivu-btn-primary.chexiao {
+  background:#e9474d!important;
+  border-color:#e9474d;
+  color:#fff;
+}
+.ivu-btn-primary.chexiao[disabled] {
+  color: #c3cbd6;
+  background-color: #f0f0f0!important;
+  border-color: #d5d5d5;
+}
+.ivu-btn-ghost{border:1px solid #d5d5d5}
+.ivu-btn-large {
+  padding: 9px 15px 10px 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  min-width: 120px;
+}
+.ivu-form-item-validating .ivu-input-icon-validate {
+  display: none;
+}
+.no-footer {
+  .ivu-modal-footer {
+    display:none;
+  }
+}
+.ivu-menu-light.ivu-menu-horizontal .ivu-menu-item.ivu-menu-item-disabled
+{
+  color:#e3e8ee;
+  &:hover span {
+    color:#e3e8ee;
+    border-bottom: none;
+  }
+}
+
+.ivu-input[readonly], fieldset[readonly] .ivu-input {
+  opacity: 1;
+  color: #000!important;
+  border:1px solid #e1e1e1!important;
+}
+
+.ivu-input[readonly]:hover, fieldset[readonly] .ivu-input:hover {
+  border:1px solid #e1e1e1!important;
+}
+form .ivu-input[readonly],fieldset[readonly] {
+   background:#fff;
+   color:#ccc;
+}
+textarea.ivu-input[readonly] {
+  color:#000!important;
+}
+.viewBox > div {
+  clear:both;
+  margin-bottom: 14px;
+  > div {
+    width:280px;
+    display: inline-block;
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+}
+.viewBox label.ivu-form-item-label {
+  width:162px;
+  padding-right:8px;
+  float:left;
+  text-align: right;
+  color:#666;
+}
+
+form.bgary .ivu-input[readonly],fieldset[readonly] {
+  background:#fff;
+  color:#000;
+}
+[data-flag="end"] .ivu-select-dropdown {
+   right:0!important;
+   left:auto!important;
+}
+.ivu-poptip-body-content {
+  color:#1d86f4;
+}
+table .ivu-checkbox-wrapper {
+  margin-left:-8px;
+}
+.ivu-table-border tr td:last-child, .ivu-table-border tr th:last-child {
+   border-right: 0;
+}
+.cust.icon  {
+  .ivu-icon:before {
+    content:"";
+    display: block;
+    width:13px;
+    height:12px;
+    background:url('../images/sprite.png') no-repeat;
+    position:relative;
+    top:1px;
+  }
+  .ivu-icon-plus:before {
+    background-position: -26px -1px;
+  }
+  .ivu-icon-export:before {
+    background-position: -75px -1px;
+  }
+  .ivu-icon-qiyong:before {
+    background-position: -150px -1px;
+  }
+  .ivu-icon-tingyong:before {
+    background-position: -174px -1px;
+  }
+  .ivu-icon-faqi:before {
+    background-position: -226px -1px;
+  }
+}
+.ivu-table-tip table {
+   width:100%!important;
+}
+/* 添加teble列固定时高度 */
+.ivu-table-fixed-body .ivu-table-row{
+   height: 41px;
+}
+#dataSetTransfer .ivu-transfer-list {
+  width:327px!important;
+}
+
+.table-responsive{
+   width:100%;
+   overflow-x:auto;
+   border-left:1px solid #e3e8ee;
+   border-right:1px solid #e3e8ee;
+  .ivu-table-wrapper {
+       border-left: 0!important;
+  }
+  .ivu-table:after {
+    background-color: #fff!important;
+  }
+}
+
+.hideFooterModal .ivu-modal-footer{
+  display:none;
+}
+
+.ivu-modal .ivu-icon{display:none}
+
+.table-border{
+  border:1px solid #d7dde4;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  .ivu-table:after{
+    background:none;
+  }
+  .table-responsive {
+    border-left:0!important;
+    border-right:0!important;
+  }
+  .ivu-table-wrapper{
+    border:none;
+  }
+  .ivu-page {
+    padding-left:10px;
+  }
+  .resultBelow{
+    margin-top:10px;
+    border-top:1px solid #d7dde4;
+    padding:20px 10px;
+  }
+}
+.color-gray666{
+  color:#666;
+}
+.datepicker .ivu-icon-ios-close-outline{
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 7px;
+  font-size: 14px;
+  color: #c8c7c7
+}

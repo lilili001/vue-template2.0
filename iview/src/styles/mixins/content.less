@@ -1,0 +1,34 @@
+@icon-prefix-cls: ~"@{css-prefix}icon";
+
+.content-header() {
+    padding: 8px 20px;
+    line-height: 1;
+    background: #f5f7f9;
+    border-radius: 4px 4px 0 0;
+    p,
+    &-inner
+    {
+        display: inline-block;
+        width: 100%;
+        height: 20px;
+        line-height: 20px;
+        font-size: @font-size-base;
+        color: @title-color;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.content-close(@top: 0, @icon-font-size: 22px) {
+    font-size: @font-size-small;
+    position: absolute;
+    right: 16px;
+    top: 2px;
+    overflow: hidden;
+    cursor: pointer;
+
+    .@{icon-prefix-cls}-ios-close-empty {
+        .close-base(@top, @icon-font-size);
+    }
+}
