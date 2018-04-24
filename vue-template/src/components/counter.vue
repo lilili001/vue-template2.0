@@ -29,7 +29,9 @@
 
         },
         mounted(){
-            this.$http.get('/indicatorWeb/dataSource/queryDataSource').then((res)=>{
+            this.$http.post('/indicatorWeb/dataSource/queryDataSource',{name:'alice',age:12}
+             
+            ).then((res)=>{
                 this.num1 = res.data.num1
             })
         },

@@ -7,12 +7,30 @@ import '../../iview/src/styles/index.less';
 import '../../iview/scss/_common.scss';
 
 import store from './store';
-
+import qs from 'qs';
 import axios from 'axios';
 Vue.prototype.$http = axios;
 
 Vue.use(iView);
 Vue.config.productionTip = false;
+
+var isFormData = function (obj) {
+    return  obj instanceof FormData ;
+};
+ 
+axios.interceptors.request.use(function (config) {
+    // Do something before request is sent
+
+    if (!isFormData(config.data) && config.method == 'post' ) {
+         config.data = qs.stringify(config.data)
+        config.headers["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8";
+    } 
+
+    return config;
+  }, function (error) {
+    // Do something with request error
+    return Promise.reject(error);
+  });
 
 Vue.prototype.$http.interceptors.response.use(
 
@@ -32,7 +50,7 @@ Vue.prototype.$http.interceptors.response.use(
             });
         };
         var err = error.response;
-        info( err.statusText + ' | ' + err.status + err.statusText );
+        
         //Do something with response error
         return Promise.reject(error)
 });
